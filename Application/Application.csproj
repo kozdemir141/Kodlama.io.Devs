@@ -19,7 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Features\UserOfficialWebSites\Dtos" />
       <Folder Include="Features\UserOfficialWebSites\Models" />
       <Folder Include="Features\UserOfficialWebSites\Profiles" />
       <Folder Include="Features\UserOfficialWebSites\Queries" />
