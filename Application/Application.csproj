@@ -20,7 +20,6 @@
 
     <ItemGroup>
       <Folder Include="Features\UserOfficialWebSites\Models" />
-      <Folder Include="Features\UserOfficialWebSites\Profiles" />
       <Folder Include="Features\UserOfficialWebSites\Queries" />
       <Folder Include="Features\UserOfficialWebSites\Rules" />
     </ItemGroup>
