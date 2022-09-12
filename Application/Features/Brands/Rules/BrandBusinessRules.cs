@@ -1,3 +1,4 @@
+using Application.Features.Brands.Constants;
 using Application.Services.Repositories;
 using Core.CrossCuttingConcerns.Exceptions;
 using Core.Persistence.Paging;
@@ -17,6 +18,6 @@ public class BrandBusinessRules
     public async Task BrandNameCanNotBeDublicatedWhenInserted(string name)
     {
         IPaginate<Brand> result = await _brandRepository.GetListAsync(b => b.BrandName == name);
-        if (result.Items.Any()) throw new BusinessException("Brand Name Exists");
+        if (result.Items.Any()) throw new BusinessException(BrandMessages.BrandNameExist);
     }
 }

@@ -1,3 +1,4 @@
+using Application.Features.Brands.Constants;
 using Application.Services.Repositories;
 using Core.CrossCuttingConcerns.Exceptions;
 using Core.Persistence.Paging;
@@ -17,11 +18,11 @@ public class CategoryBusinessRules
     public async Task CategoryNameCanNotBeDublicatedWhenInserted(string name)
     {
         IPaginate<Category> result = await _categoryRepository.GetListAsync(c => c.CategoryName == name);
-        if (result.Items.Any()) throw new BusinessException("Category Name Exists");
+        if (result.Items.Any()) throw new BusinessException(CategoryMessages.CategoryNameExist);
     }
     public async Task CategoryShouldExistWhenRequested(int id)
     {
         Category? category = await _categoryRepository.GetAsync(c => c.Id == id);
-        if (category == null) throw new BusinessException("Requested Category Does Not Exist");
+        if (category == null) throw new BusinessException(CategoryMessages.CategoryMustExist);
     }
 }

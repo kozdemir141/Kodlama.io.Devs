@@ -1,3 +1,4 @@
+using Application.Features.Auths.Constants;
 using Application.Services.Repositories;
 using Core.CrossCuttingConcerns.Exceptions;
 using Core.Persistence.Paging;
@@ -18,20 +19,20 @@ public class AuthBusinessRules
     public async Task ThisEmailAddressAlreadyHasAnAccount(string email)
     {
         IPaginate<User> result = await _userRepository.GetListAsync(u => u.Email == email);
-        if (result.Items.Any()) throw new BusinessException("This Email Address Already Has An Account");
+        if (result.Items.Any()) throw new BusinessException(AuthMessages.EmailHasTaken);
     }
 
     public async Task ThereIsNoAccountRegisteredForThisEmailAddress(string email)
     {
         User? user = await _userRepository.GetAsync(u => u.Email == email);
-        if (user == null) throw new BusinessException("There is no account registered for this Email Address");
+        if (user == null) throw new BusinessException(AuthMessages.NoAccount);
     }
 
     public async Task VerifyPassword(string password,User user)
     {
         if (!HashingHelper.VerifyPasswordHash(password,user.PasswordHash,user.PasswordSalt))
         {
-            throw new Exception("The Password you entered is Incorrect.");
+            throw new Exception(AuthMessages.VerifyPassword);
         }
     }
 }
