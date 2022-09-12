@@ -1,4 +1,5 @@
 using Application.Features.UserOfficialWebSites.Commands.CreateUserOfficialWebSite;
+using Application.Features.UserOfficialWebSites.Commands.DeleteUserOfficialWebSite;
 using Application.Features.UserOfficialWebSites.Dtos;
 using AutoMapper;
 using Domain.Entities;
@@ -13,5 +14,10 @@ public class MappingProfiles : Profile
         
         CreateMap<UserOfficialWebSite, CreatedUserOfficialWebSiteDto>().ReverseMap();
         CreateMap<UserOfficialWebSite, CreateUserOfficialWebSiteCommand>().ReverseMap();
+        
+        //DeleteUserOfficialWebSiteCommand
+        
+        CreateMap<UserOfficialWebSite, DeletedUserOfficialWebSiteDto>().ReverseMap();
+        CreateMap<UserOfficialWebSite, DeleteUserOfficialWebSiteCommand>().ReverseMap();
     }
 }
