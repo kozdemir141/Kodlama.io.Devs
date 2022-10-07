@@ -19,9 +19,11 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Features\OperationClaims\Rules" />
       <Folder Include="Features\UserOfficialWebSites\Models" />
       <Folder Include="Features\UserOfficialWebSites\Queries" />
       <Folder Include="Features\UserOfficialWebSites\Rules" />
+      <Folder Include="Features\UserOperationClaims\Rules" />
     </ItemGroup>
 
 </Project>

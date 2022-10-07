@@ -5,5 +5,4 @@ namespace Application.Services.Repositories;
 
 public interface IProductRepository : IAsyncRepository<Product> , IRepository<Product>
 {
-    
 }

@@ -3,6 +3,7 @@ using Application.Features.Auths.Rules;
 using Application.Features.Brands.Rules;
 using Application.Features.Categories.Rules;
 using Application.Features.Products.Rules;
+using Application.Services.AuthServices;
 using Core.Application.Pipelines.Validation;
 using FluentValidation;
 using MediatR;
@@ -27,6 +28,9 @@ public static class ApplicationServiceRegistration
         services.AddScoped<BrandBusinessRules>();
         services.AddScoped<ProductBusinessRules>();
         services.AddScoped<AuthBusinessRules>();
+        
+        //Services
+        services.AddScoped<IAuthService, AuthManager>();
 
         return services;
     }

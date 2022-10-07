@@ -14,6 +14,7 @@ using Application.Features.Products.Queries.GetListProductsByCategory;
 using Application.Features.Products.Queries.GetNonDeletedProducts;
 using Core.Application.Requests;
 using Core.Persistence.Dynamic;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
@@ -63,6 +64,7 @@ public class ProductsController : BaseController
     }
     
     [HttpGet("GetList")]
+    [Authorize(Roles = "Test")]
     public async Task<IActionResult> GetList([FromQuery] PageRequest pageRequest)
     {
         GetListProductQuery getListProductQuery = new() { PageRequest = pageRequest };

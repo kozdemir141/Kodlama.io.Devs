@@ -18,8 +18,8 @@ public class AuthBusinessRules
 
     public async Task ThisEmailAddressAlreadyHasAnAccount(string email)
     {
-        IPaginate<User> result = await _userRepository.GetListAsync(u => u.Email == email);
-        if (result.Items.Any()) throw new BusinessException(AuthMessages.EmailHasTaken);
+        User? user = await _userRepository.GetAsync(u=>u.Email==email);
+        if (user != null) throw new BusinessException(AuthMessages.EmailHasTaken);
     }
 
     public async Task ThereIsNoAccountRegisteredForThisEmailAddress(string email)

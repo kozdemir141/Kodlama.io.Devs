@@ -5,5 +5,4 @@ namespace Application.Services.Repositories;
 
 public interface IUserOfficialWebSiteRepository : IAsyncRepository<UserOfficialWebSite>,IRepository<UserOfficialWebSite>
 {
-    
 }

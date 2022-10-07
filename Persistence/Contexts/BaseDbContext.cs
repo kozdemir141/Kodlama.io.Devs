@@ -16,15 +16,15 @@ public class BaseDbContext : DbContext
     public DbSet<Product> Products { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Brand> Brands { get; set; }
-
     //Auth
     public DbSet<User> Users { get; set; }
     public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     public DbSet<OperationClaim> OperationClaims { get; set; }
-    
+
+    public DbSet<RefreshToken> RefreshTokens { get; set; }
     //User
     public DbSet<UserOfficialWebSite> UserOfficialWebSites { get; set; }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //Detailed Mapping Process Added to the Persistence/Mappings...
@@ -34,6 +34,7 @@ public class BaseDbContext : DbContext
         modelBuilder.ApplyConfiguration(new UserMap());
         modelBuilder.ApplyConfiguration(new UserOperationClaimMap());
         modelBuilder.ApplyConfiguration(new OperationClaimMap());
+        modelBuilder.ApplyConfiguration(new RefreshTokenMap());
         modelBuilder.ApplyConfiguration(new UserOfficialWebSiteMap());
     }
 }
